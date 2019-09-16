@@ -75,14 +75,14 @@ namespace ResRenderer {
 		glfwTerminate();
 	}
 
-	bool RES_RENDERER_API CreateWindow(int width, int height, const char* title, Window* outWindow) {
+	ErrorCode RES_RENDERER_API CreateResWindow(int width, int height, const char* title, Window* outWindow) {
 		try {
 			auto t = static_cast<Window>(new WindowImpl(width, height, title));
 			*outWindow = t;
-			return true;
+			return ErrorCode::RES_NO_ERROR;
 		}
 		catch (std::exception&) {
-			return false;
+			return ErrorCode::INTERNAL_ERROR;
 		}
 	}
 

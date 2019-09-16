@@ -125,7 +125,7 @@ namespace ResRenderer {
 
 
 	typedef void(*WindowResizeCallback)(int, int);
-	bool RES_RENDERER_API CreateWindow(int width, int height, const char* title, Window* outWindow);
+	ErrorCode RES_RENDERER_API CreateResWindow(int width, int height, const char* title, Window* outWindow);
 	void RES_RENDERER_API RegisterWindowResizeCallback(Window window, WindowResizeCallback callback);
 	bool RES_RENDERER_API ShouldCloseWindow(Window window);
 	void RES_RENDERER_API SwapBuffer(Window window);

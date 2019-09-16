@@ -32,7 +32,7 @@ int main(){
 	}
 
 	ResRenderer::Window pWindow;
-    if (ResRenderer::CreateWindow(800, 600, "233", &pWindow)){
+    if (ResRenderer::CreateResWindow(800, 600, "233", &pWindow) == ErrorCode::RES_NO_ERROR){
 
 		Mesh mesh;
 		CHECKERROR(CreateMesh(&mesh));
