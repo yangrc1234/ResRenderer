@@ -33,7 +33,7 @@ int main(){
 
 	ResRenderer::Window pWindow;
     if (ResRenderer::CreateResWindow(800, 600, "233", &pWindow) == ErrorCode::RES_NO_ERROR){
-
+		/*
 		Mesh mesh;
 		CHECKERROR(CreateMesh(&mesh));
 		MeshData meshData;
@@ -52,7 +52,7 @@ int main(){
 		meshData.data = vertices;
 		meshData.dataSize = sizeof(vertices);
 		CHECKERROR(UploadMeshData(mesh, &meshData));
-
+		
 		Shader shader;
 		auto shaderSource = LoadSourceFromFile("../resource/shader.glsl");
 		char compileError[2000];
@@ -63,16 +63,18 @@ int main(){
 
 		int location;
 		CHECKERROR(GetUniformLocation(shader, "_Tint", &location));
+		*/
         while (!ResRenderer::ShouldCloseWindow(pWindow)){
-			CHECKERROR(UseShader(shader));
-			CHECKERROR(DrawMesh(mesh));
+			//CHECKERROR(UseShader(shader));
+			//CHECKERROR(DrawMesh(mesh));
 			auto Time = fmod(GetTime(), 1.0f);
-			SetUniformVec(shader, location, Color(Time, Time, Time, Time));
+			Clear(Color(0.5f, 0.5f, 0.5f, 1.0f), ClearType::ColorAndDepth);
+			//SetUniformVec(shader, location, Color(Time, Time, Time, Time));
             SwapBuffer(pWindow);
             PollEvents();
         }
 
-		DestroyMesh(mesh);
+		//DestroyMesh(mesh);
 		
 		ResRenderer::Terminate();
     }else{
